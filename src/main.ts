@@ -16,11 +16,12 @@ async function bootstrap() {
   const moduleRoutingPath = `/${process.env.MODULE}`;
   app.setGlobalPrefix('api' + moduleRoutingPath);
 
-  // const cors: string[] = process.env.CORS.split(',');
-  // app.enableCors({
-  //   origin: cors,
-  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  // });
+  const cors: string[] = process.env.CORS.split(',');
+  console.log('cors: ', cors);
+  app.enableCors({
+    origin: cors,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  });
 
   app.enableCors();
 
